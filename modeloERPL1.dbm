@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.1" last-position="0,0" last-zoom="0.6"
+<dbmodel pgmodeler-ver="0.9.1" last-position="229,0" last-zoom="0.75"
 	 default-schema="public" default-owner="postgres">
 <database name="new_database" is-template="false" allow-conns="true">
 </database>
@@ -48,12 +48,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="turno" not-null="true">
 		<type name="boolean" length="0"/>
 	</column>
+	<column name="nota_media" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
 	<constraint name="trabajador_pk" type="pk-constr" table="public.trabajador">
 		<columns names="dni" ref-type="src-columns"/>
 	</constraint>
 
 	<customidxs object-type="column">
-		<object name="nombre_tienda" index="6"/>
+		<object name="nombre_tienda" index="5"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
@@ -210,15 +213,20 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="hora">
 		<type name="time" length="0"/>
 	</column>
+	<column name="total" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
 	<constraint name="ticket_pk" type="pk-constr" table="public.ticket">
 		<columns names="id_ticket" ref-type="src-columns"/>
 	</constraint>
 
 	<customidxs object-type="column">
+		<object name="dni_trabajador_cajero" index="4"/>
 		<object name="numero_socio" index="3"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
+		<object name="cajero_fk" index="2"/>
 		<object name="socio_fk" index="1"/>
 	</customidxs>
 </table>
@@ -250,7 +258,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-required="false" dst-required="false"
 	 table-name="trabajador_puntua_trabajador">
 	<line>
-		<position x="452.916" y="470.417"/>
+		<position x="452.916" y="475.083"/>
 	<position x="452.916" y="409"/>
 	<position x="347.944" y="409"/>
 	</line>
@@ -414,7 +422,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 custom-color="#83af1f"
 	 src-table="public.producto"
 	 dst-table="public.producto_en_oferta"
-	 src-required="false" dst-required="false">
+	 src-required="true" dst-required="false">
 	<label ref-type="src-label">
 		<position x="23.4526" y="19.725"/>
 	</label>
