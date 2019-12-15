@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1" last-position="0,0" last-zoom="0.6"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="tienda">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="200" y="880"/>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="150"/>
+	</column>
+	<column name="ciudad" not-null="true">
+		<type name="varchar" length="150"/>
+	</column>
+	<column name="barrio">
+		<type name="varchar" length="150"/>
+	</column>
+	<constraint name="Tienda_pk" type="pk-constr" table="public.tienda">
+		<columns names="nombre" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="trabajador">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="160" y="420"/>
+	<column name="dni" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="150"/>
+	</column>
+	<column name="telefono">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="movil" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="turno" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="trabajador_pk" type="pk-constr" table="public.trabajador">
+		<columns names="dni" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="nombre_tienda" index="6"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="tienda_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="cajero">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="340" y="80"/>
+</table>
+
+<table name="reponedor">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="400" y="220"/>
+	<column name="jornada" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+</table>
+
+<table name="socio">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1520" y="720"/>
+	<column name="numero" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="150"/>
+	</column>
+	<column name="dni">
+		<type name="varchar" length="9"/>
+	</column>
+	<column name="telefono">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="mail">
+		<type name="varchar" length="150"/>
+	</column>
+	<column name="direccion">
+		<type name="varchar" length="200"/>
+	</column>
+	<column name="saldo_acumulado">
+		<type name="float" length="0"/>
+	</column>
+	<constraint name="socio_pk" type="pk-constr" table="public.socio">
+		<columns names="numero" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="producto">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1040" y="40"/>
+	<column name="codigo" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="precio_iva" not-null="true">
+		<type name="float" length="0"/>
+	</column>
+	<column name="precio" not-null="true">
+		<type name="float" length="0"/>
+	</column>
+	<column name="stock" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="producto_pk" type="pk-constr" table="public.producto">
+		<columns names="codigo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="cupon">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1760" y="40"/>
+	<column name="id_cupon" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="descuento" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="cupon_pk" type="pk-constr" table="public.cupon">
+		<columns names="id_cupon" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="opinion">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="640" y="960"/>
+	<column name="id_opinion" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="texto">
+		<type name="varchar" length="1000"/>
+	</column>
+	<column name="puntuacion">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="fecha">
+		<type name="date" length="0"/>
+	</column>
+	<column name="hora">
+		<type name="time" length="0"/>
+	</column>
+	<constraint name="opinion_pk" type="pk-constr" table="public.opinion">
+		<columns names="id_opinion" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="nombre_tienda" index="6"/>
+		<object name="numero_socio" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="socio_fk" index="1"/>
+		<object name="tienda_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="oferta">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1460" y="160"/>
+	<column name="id_oferta" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="descuento" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="fecha_inicio" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="fecha_fin" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="oferta_pk" type="pk-constr" table="public.oferta">
+		<columns names="id_oferta" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="ticket">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="800" y="580"/>
+	<column name="id_ticket" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="fecha" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="hora">
+		<type name="time" length="0"/>
+	</column>
+	<constraint name="ticket_pk" type="pk-constr" table="public.ticket">
+		<columns names="id_ticket" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="numero_socio" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="socio_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="trabaja_en" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.tienda"
+	 dst-table="public.trabajador"
+	 src-required="true" dst-required="false">
+	<label ref-type="src-label">
+		<position x="0" y="0"/>
+	</label>
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="evalua" type="relnn"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#83af1f"
+	 src-table="public.trabajador"
+	 dst-table="public.trabajador"
+	 src-required="false" dst-required="false"
+	 table-name="trabajador_puntua_trabajador">
+	<line>
+		<position x="452.916" y="470.417"/>
+	<position x="452.916" y="409"/>
+	<position x="347.944" y="409"/>
+	</line>
+	<column name="puntuacion">
+		<type name="smallint" length="0"/>
+	</column>
+</relationship>
+
+<relationship name="tiene_cupon" type="relnn"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#83af1f"
+	 src-table="public.socio"
+	 dst-table="public.cupon"
+	 src-required="false" dst-required="false"
+	 table-name="socios_cupon">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="escribe" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.socio"
+	 dst-table="public.opinion"
+	 src-required="true" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="obtiene" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.socio"
+	 dst-table="public.ticket"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="esta_en_cupon" type="relnn"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#83af1f"
+	 src-table="public.producto"
+	 dst-table="public.cupon"
+	 src-required="false" dst-required="false"
+	 table-name="producto_cupon"/>
+
+<relationship name="contiene" type="relnn"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#83af1f"
+	 src-table="public.producto"
+	 dst-table="public.ticket"
+	 src-required="false" dst-required="false"
+	 table-name="productos_comprados">
+	<line>
+		<position x="1180" y="100"/>
+	</line>
+	<label ref-type="name-label">
+		<position x="46.9581" y="3.81434"/>
+	</label>
+	<column name="cantidad">
+		<type name="smallint" length="0"/>
+	</column>
+</relationship>
+
+<relationship name="tiene_opinion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.tienda"
+	 dst-table="public.opinion"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="devuelve" type="relnn"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#ff5500"
+	 src-table="public.ticket"
+	 dst-table="public.producto"
+	 src-required="false" dst-required="false"
+	 table-name="productos_devueltos">
+	<line>
+		<position x="1160" y="580"/>
+	</line>
+	<label ref-type="src-label">
+		<position x="13.0795" y="1.85"/>
+	</label>
+	<label ref-type="name-label">
+		<position x="-27.1027" y="3.81434"/>
+	</label>
+	<column name="cantidad" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+</relationship>
+
+<relationship name="trabajador_tiene_muchos_reponedor" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.trabajador"
+	 dst-table="public.reponedor"
+	 src-required="true" dst-required="false">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="trabajador_tiene_muchos_cajero" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.trabajador"
+	 dst-table="public.cajero"
+	 src-required="true" dst-required="false">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="cajero_tiene_muchos_ticket" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.cajero"
+	 dst-table="public.ticket"
+	 src-required="true" dst-required="false"/>
+
+<table name="producto_en_oferta" hide-ext-attribs="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1340" y="320"/>
+</table>
+
+<relationship name="oferta_tiene_muchos_producto_en_oferta" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.oferta"
+	 dst-table="public.producto_en_oferta"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="producto_en_oferta_tiene_uno_producto" type="rel11"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.producto"
+	 dst-table="public.producto_en_oferta"
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="23.4526" y="19.725"/>
+	</label>
+</relationship>
+
+</dbmodel>
