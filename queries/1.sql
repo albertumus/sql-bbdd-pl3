@@ -1,0 +1,1 @@
+SELECT codigo, precio FROM producto
