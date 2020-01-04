@@ -1,0 +1,3 @@
+CREATE TRIGGER tg_trabajador_no_existe BEFORE INSERT
+  ON TRABAJADOR FOR EACH ROW
+  EXECUTE PROCEDURE fn_trabajador_existe();

@@ -1,0 +1,3 @@
+CREATE TRIGGER tg_suma_total_ticket AFTER INSERT
+  ON PRODUCTOS_COMPRADOS FOR EACH ROW
+  EXECUTE PROCEDURE fn_suma_total_ticket();

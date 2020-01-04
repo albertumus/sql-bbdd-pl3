@@ -1,0 +1,3 @@
+CREATE TRIGGER tg_resta_total_ticket AFTER DELETE
+  ON PRODUCTOS_COMPRADOS FOR EACH ROW
+  EXECUTE PROCEDURE fn_resta_total_ticket();
