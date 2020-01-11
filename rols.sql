@@ -7,7 +7,7 @@ CREATE GROUP trabajador;
 
 -- PERMISOS
 GRANT ALL PRIVILEGES ON DATABASE pl3 TO administrador;
-GRANT SELECT, UPDATE, INSERT ON ticket, productos_comprados, productos_devueltos, producto, socio TO cajero;
+GRANT SELECT, UPDATE, INSERT ON ticket, productos_comprados, productos_devueltos, producto, socio, cajero TO cajero;
 GRANT SELECT, UPDATE, INSERT, DELETE 
 ON tienda, trabajador, cajero, reponedor, ticket, socio, producto, oferta, cupon, opinion, producto_cupon, 
 producto_en_oferta,productos_comprados, productos_devueltos, socios_cupon, trabajador_puntua_trabajador
