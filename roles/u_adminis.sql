@@ -1,1 +1,1 @@
-CREATE USER adminis WITH PASSWORD 'eladmin' IN GROUP administrador SUPERUSER;
+CREATE USER admin WITH PASSWORD 'eladmin' IN GROUP administrador SUPERUSER;
