@@ -1,0 +1,1 @@
+CREATE USER Pepe WITH PASSWORD 'soypepe' IN GROUP socio

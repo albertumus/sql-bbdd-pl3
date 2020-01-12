@@ -1,0 +1,1 @@
+CREATE USER Ana WITH PASSWORD 'soyana' IN GROUP socio

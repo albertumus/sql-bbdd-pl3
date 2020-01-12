@@ -1,0 +1,1 @@
+CREATE USER Alberto WITH PASSWORD 'soyalberto' IN GROUP cajero

@@ -1,0 +1,1 @@
+GRANT SELECT ON socio, socios_cupon TO socio

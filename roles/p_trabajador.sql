@@ -1,0 +1,1 @@
+GRANT SELECT, UPDATE, INSERT ON cajero,reponedor TO trabajador

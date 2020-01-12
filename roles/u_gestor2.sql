@@ -1,0 +1,1 @@
+CREATE USER gestor2 WITH PASSWORD 'soyg2' IN GROUP gestor

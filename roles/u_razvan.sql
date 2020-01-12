@@ -1,0 +1,1 @@
+CREATE USER Razvan WITH PASSWORD 'soyraz' IN GROUP socio
