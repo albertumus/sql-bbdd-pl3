@@ -16,7 +16,7 @@ GRANT SELECT ON socio, socios_cupon TO socio;
 GRANT SELECT, UPDATE, INSERT ON cajero,reponedor TO trabajador;
 
 -- USUARIOS
-CREATE USER adminis WITH PASSWORD 'eladmin' IN GROUP administrador SUPERUSER;
+CREATE USER admin WITH PASSWORD 'admin' IN GROUP administrador SUPERUSER;
 CREATE USER Alberto WITH PASSWORD 'soyalberto' IN GROUP cajero;
 CREATE USER paco WITH PASSWORD 'soypaco' IN GROUP cajero;
 CREATE USER Irene WITH PASSWORD 'soyirene' IN GROUP cajero;
